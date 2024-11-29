@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        var OldPassWord , NewPassWord , ConfimPassWord;
+
+        OldPassWord= prompt("Enter Old Password");
+        NewPassWord= prompt("Enter new Password");
+        ConfimPassWord= prompt("Enter confim Password");
+        
+        if(OldPassWord == NewPassWord)
+            {
+                console.log("Password is alredy used");
+            }
+            else{
+                if(NewPassWord !== ConfimPassWord){
+                    console.log("newpassword and confrom password is not matched");
+                }
+                else{
+                    console.warn("your password is successfully changed");
+                }
+            }
+    </script>
+</body>
+</html>
