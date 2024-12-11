@@ -42,8 +42,7 @@ function fibonaci(n){
         return 1;
     }
     else{
-        n++;
-        return n+1;
+       return n++;
     }
 }
 console.log(fibonaci(4));
