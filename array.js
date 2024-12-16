@@ -29,8 +29,79 @@ console.log(data);
 //splice() method is used to remove and add element at the any index of array
 data.splice(1,1,23333);
 console.log(data);
+
 //indexOf() method is used to find the index of element in array
 console.log(data.indexOf(23333));
+//output=1
+
 //check formate of array
 console.log(Array.isArray(data));
+//output= true
+
+//callback ()
+//function ke under function its'called callback function....
+
+//Filter() method used to filter in array
+// let arr=[11,22,33,44,55];
+
+// let ans= arr.filter((ele,index) => { 
+//     return ele>=30;
+// })
+// console.log(ans);
+//output=33,44,55
+
+//find() used to find out the element in array
+// let arr=[111,22,33,44,55];
+// let ans= arr.find((ele,index) => { 
+//     return ele <=30;
+// })
+// console.log(ans);
+//output=22
+
+//findindex()used to the find index of element in array
+// let arr=[11,22,33,44,55];
+// let ans= arr.findIndex((ele,index) => { 
+//     return ele == 22;
+// })
+// console.log(ans);
+//output=1
+
+//some()used to condition true hogi so return true otherwise false
+// let arr=[111,221,313,414,515];
+// let ans= arr.some((ele,index) => { 
+//     return ele <=30;
+// })
+// console.log(ans);
+//output=false
+
+//every()used to all the condition true hogi so return true otherwise false
+// let arr=[111,221,33,44,55];
+// let ans= arr.every((ele,index) => { 
+//     return ele >30;
+// })
+// console.log(ans);
+//output=true
+
+//includes() specifix condition in arrray include to condition check
+// let arr=[111,22,33,44,55];
+// let ans= arr.includes((ele,index) => { 
+//     return ele > 30;
+// })
+// console.log(ans);
+//output=false
+
+// map()used to map the array
+// let arr=[10,20,30,40,50];
+// let ans= arr.map((ele,index) => { 
+//     return ele *2;
+// })
+// console.log(ans);
+//output=[ 20, 40, 60, 80, 100 ]
+
+//foreach() no return statment use 
+var data=[11,22,33];
+let arr=data.forEach((ele,index)=>{
+    console.log(ele);
+})
+//output=11,22,33
 
