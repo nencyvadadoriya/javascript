@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            min-width: 100%;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .btn-group button {
+            padding: 10px 20px;
+            border: none;
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+        .slider {
+                width: 300px;
+                overflow: hidden;
+        }
+        .slides {
+             display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+</style>
+</head>
+<body>
+   <div class="container">
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <p>“Be yourself; everyone else is already taken.”</p>
+                <h4>— Oscar Wilde</h4>
+            </div>
+            <div class="slide">
+                <p>“So many books, so little time.”</p>
+                <h4>— Frank Zappa</h4>
+            </div>
+            <div class="slide">
+                <p>“Be the change that you wish to see in the world.”</p>
+                <h4>— Mahatma Gandhi</h4>
+            </div>
+            <div class="slide">
+                <p>“So many books, so little time.”</p>
+                <h4>— Frank Zappa</h4>
+            </div>
+        </div>
+        <div class="slide">
+            <p>“Be yourself; everyone else is already taken.”</p>
+            <h4>— Oscar Wilde</h4>
+        </div>
+        <div class="btn-group">
+            <button onclick="prevslide()">Previous</button>
+            <button onclick="nextslide()">Next</button>
+        </div>
+    </div>
+   </div>
+
+<script>
+let slideindex = 0;
+var slides = document.querySelectorAll(".slide");
+var slidescontainer = document.querySelector(".slides");
+
+function nextslide() {
+  slideindex++;
+  if (slideindex >= slides.length) { 
+    slideindex = 0; 
+  }
+  slidesContainer.style.transform = `translateX(-${slideindex * 100}%)`;
+}
+
+function prevslide() {
+  slideindex--;
+  if (slideindex < 0) {
+    slideindex = slides.length - 1;
+  }
+  slidescontainer.style.transform = `translateX(-${slideindex * 100}%)`;
+}
+</script>
+
+</body>
+</html>
