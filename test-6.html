@@ -33,6 +33,7 @@
                 width: 300px;
                 overflow: hidden;
         }
+
         .slides {
              display: flex;
             transition: transform 0.5s ease-in-out;
@@ -60,36 +61,32 @@
                 <h4>— Frank Zappa</h4>
             </div>
         </div>
-        <div class="slide">
-            <p>“Be yourself; everyone else is already taken.”</p>
-            <h4>— Oscar Wilde</h4>
-        </div>
         <div class="btn-group">
-            <button onclick="prevslide()">Previous</button>
-            <button onclick="nextslide()">Next</button>
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
         </div>
     </div>
    </div>
 
 <script>
-let slideindex = 0;
-var slides = document.querySelectorAll(".slide");
-var slidescontainer = document.querySelector(".slides");
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const slidesContainer = document.querySelector(".slides");
 
-function nextslide() {
-  slideindex++;
-  if (slideindex >= slides.length) { 
-    slideindex = 0; 
+function nextSlide() {
+  slideIndex++;
+  if (slideIndex >= slides.length) { 
+    slideIndex = 0; 
   }
-  slidesContainer.style.transform = `translateX(-${slideindex * 100}%)`;
+  slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 
-function prevslide() {
-  slideindex--;
-  if (slideindex < 0) {
-    slideindex = slides.length - 1;
+function prevSlide() {
+  slideIndex--;
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
   }
-  slidescontainer.style.transform = `translateX(-${slideindex * 100}%)`;
+  slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 </script>
 
