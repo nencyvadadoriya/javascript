@@ -3,6 +3,8 @@
 //defination--
 //object is a real world entity
 //every think is the object
+// collection of multiple datatype 
+//collection of properties its called object..
 
 //syntax---
 // let a={}
