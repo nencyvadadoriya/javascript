@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>from</title>
+</head>
+<body>
+    <div align="center">
+        <h2>Registration From</h2>
+        <form id="form">
+            <div>
+                <label>First Name := </label>
+                <input type="text" name="firstname" id="firstname">
+                <span id="firsterr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Last  Name := </label>
+                <input type="text" name="lastname" id="lastname">
+                <span id="lasterr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Email:= </label>
+                <input type="email" name="email" id="email">
+                <span id="emailerr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Passwrod:= </label>
+                <input type="password" name="password" id="password">
+                <span id="passerr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Date Of Birth:= </label>
+                <input type="date" name="date" id="date">
+                <span id="dateerr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Gender := </label>
+                <input type="radio" name="gender">Male
+                <input type="radio" name="gender">FeMale
+                <span id="gendererr" class="error"></span>
+                <br><br>
+            </div>
+            <div>
+                <label>Hobby := </label>
+                <select name="hobby" id="hobby">
+                    <option hidden>Select Hobby</option>
+                    <option id="reading">Reading</option>
+                    <option id="eating">Eating</option>
+                    <option id="cooking">Cooking</option>
+                </select>
+                <span id="hobbyerr" class="error"></span>
+                <br><br>
+            </div>
+            <div><button type="submit" id="button">Submit</button></div>
+        </form>
+    </div>
+
+    <script src="from.js"></script>
+</body>
+</html>
