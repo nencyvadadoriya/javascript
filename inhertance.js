@@ -140,4 +140,32 @@ let child = new Child("jayantibhai","Nency");
 child.sayparent(); 
 child.sayChild();
 
+//multipal inheritance := 
+const Parent1 = {
+  greet() {
+    console.log("Hello from Parent1");
+  }
+};
+
+const Parent2 = {
+  sayGoodbye() {
+    console.log("Goodbye from Parent2");
+  }
+};
+
+// Child class combining multiple parents
+class Child {
+  constructor() {
+    console.log("Child created");
+  }
+}
+
+// Combine features from Parent1 and Parent2 into Child
+Object.assign(Child.prototype, Parent1, Parent2);
+
+// Using the Child class
+const child = new Child();
+child.greet(); // "Hello from Parent1"
+child.sayGoodbye(); // "Goodbye from Parent2"
+
  
