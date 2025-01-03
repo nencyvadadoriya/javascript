@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="j-qeury-form.css">
+</head>
+<body>
+    <div align="center">
+        <h2>Register  From</h2>
+        <form id="form">
+            <div>
+                    <label>First Name</label>
+                    <input type="text" name="firstname" id="firstname">
+                <span id="firsterr" class="error"></span>
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lastname" id="lastname">
+                <span id="lasterr" class="error"></span>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" id="email">
+                <span id="emailerr" class="error"></span>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="password">
+                <span id="passerr" class="error"></span>
+            </div>
+            <div>
+                <label>Date of Birth</label>
+                <input type="date" name="date" id="date">
+                <span id="dateerr" class="error"></span>
+            </div>
+            <div>
+                <div class="d-flex align-center">
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="Male" id="gender"> Male
+                    <input type="radio" name="gender" value="Female" id="gender"> Female
+                </div>
+                <span id="gendererr" class="error"></span>
+            </div>
+            <div>
+                <label>Hobby</label>
+                <select name="hobby" id="hobby">
+                    <option value="" hidden>Select Hobby</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Cooking">Cooking</option>
+                </select>
+                <span id="hobbyerr" class="error"></span>
+            </div>
+            <div>
+                <button type="submit" id="button">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="j-qeury-form.js"></script>
+</body>
+</html>
