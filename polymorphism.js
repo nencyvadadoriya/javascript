@@ -54,3 +54,18 @@
 // }
 // let obj = new B();
 // let output = obj.area(100, 200);
+
+//abstraction:= is the process of hiding the complex details of how something works and showing only the necessary features to the user
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    start() {
+        console.log(`${this.make} ${this.model} is starting.`);
+    }
+}
+
+const myCar = new Car('Toyota', 'Corolla');
+myCar.start(); // Toyota Corolla is starting.
