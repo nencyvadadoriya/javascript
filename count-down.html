@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Countdown</title>
+    <style>
+        .d-flex {
+            display: flex;
+        }
+        .align-center {
+            align-items: center;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .label {
+            padding: 46px;
+            color: black;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .colan {
+            font-size: 80px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 25px;
+        }
+        .digit {
+            width: 50px;
+            height: 80px;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #fff 50%, #ccc 50%);
+            border: 2px solid #000;
+            border-radius: 10px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex align-center">
+        <div>
+            <div class="text-center d-flex justify-center">
+                <div class="digit" id="hours-1"></div>
+                <div class="digit" id="hours-2"></div>
+            </div>
+            <span class="label">Hours</span>
+        </div>
+        <div class="colan">:</div>
+        <div>
+            <div class="text-center d-flex justify-center">
+                <div class="digit" id="minutes-1"></div>
+                <div class="digit" id="minutes-2"></div>
+            </div>
+            <span class="label">Minutes</span>
+        </div>
+        <div class="colan">:</div>
+        <div>
+            <div class="text-center d-flex justify-center">
+                <div class="digit" id="seconds-1"></div>
+                <div class="digit" id="seconds-2"></div>
+            </div>
+            <span class="label">Seconds</span>
+        </div>
+    </div>
+    <script>
+        var targetDate = new Date("January 30, 2026 15:37:25").getTime();
+        var interval = setInterval(() => {
+            var now = new Date().getTime();
+            var distance = targetDate - now;
+            var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            var minutes = Math.floor((distance / (1000 * 60)) % 60);
+            var seconds = Math.floor((distance / 1000) % 60);
+
+            document.getElementById("hours-1").innerText = Math.floor(hours / 10);
+            document.getElementById("hours-2").innerText = hours % 10;
+
+            document.getElementById("minutes-1").innerText = Math.floor(minutes / 10);
+            document.getElementById("minutes-2").innerText = minutes % 10;
+
+            document.getElementById("seconds-1").innerText = Math.floor(seconds / 10);
+            document.getElementById("seconds-2").innerText = seconds % 10;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.querySelectorAll('.digit').forEach(digit => digit.innerText = '0');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
