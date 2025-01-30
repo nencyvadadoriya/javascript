@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <header>
+                <nav class="d-flex justify-between">
+                    <a href="./index.html">Home</a>
+                    <a href="./add-to-cart.html">Add To Cart</a>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h1 class="text-center">Product Page</h1>
+        <form id="product-form">
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="productname" required><br>
+
+            <label for="product-price">Product Price ($):</label>
+            <input type="number" id="productprice" required><br>
+
+            <label for="product-quantity">Product Quantity:</label>
+            <input type="number" id="productquantity" required><br>
+
+            <label for="product-size">Product Size:</label>
+            <input type="text" id="productsize" required><br>
+
+            <label for="product-color">Product Color:</label>
+            <input type="text" id="productcolor" required><br>
+
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
