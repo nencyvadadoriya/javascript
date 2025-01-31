@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.d-flex{
+    display: flex;
+}
+a{
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between; 
+}
+.text-center{
+    text-align: center;
+}
+.align-center{
+    align-items: center;
+}
+.w-4{
+    width:20%;
+}
+ .btn {
+    padding: 10px 15px;
+    background-color: rgb(29, 144, 152);
+    color: white;
+    font-size: 20px;
+    
+}
+.btn:hover{
+    background-color: white;
+    border:1px solid   rgb(29, 144, 152);
+    color:  rgb(29, 144, 152);
+}
+.text{
+    font-size: 43px;
+}
+.header{
+    background-color: rgb(33, 144, 152);
+    color: white;
+    padding: 10px;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+nav a{
+    font-size: 24px;
+    color: white;
+    margin:0 50px;
+}
+
+/* card  */
+#product-1 , #product-2 , #product-3 , #product-4 , #product-5 , #product-6 , #product-7 , #product-8{
+    margin: 20px;
+}
+.card {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  /* media qeury  */
+@media (max-width: 768px) {
+    .w-4 {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .w-4 {
+        flex: 1 1 100%; 
+    }
+}

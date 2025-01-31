@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="container header">
+        <header>
+            <nav>
+                <ul class="d-flex justify-between">
+                    <a href="./index.html">Home</a>
+                    <a href="./add-to-cart.html">Your Cart</a>
+                </ul>
+            </nav>
+        </header>
+    </section>
+    <h2 align="center">Your Cart</h2>
+    <section class="container add-to-cart">
+        <div class="row" id="cart-items"></div>
+    </section>
+
+    <script>
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartContainer = document.getElementById('cart-items');
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = '<h3>Your cart is empty.</h3>';
+            } else {
+                cartItems.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.style.width = "300px"; 
+                    cartItem.innerHTML = `
+                        <div class="card">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="card-body">
+                                <h3 class="card-title">${item.name}</h3>
+                                <h4 class="card-text">₹${item.price}</h4>
+                                <a href="#" class="btn delete-btn" onclick="removeFromCart('${item.name}')">Remove</a>
+                            </div>
+                        </div>
+                    `;
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+        };
+        function removecard(product) {
+            let card = JSON.parse(localStorage.getItem('card')) || [];
+            card = card.filter(item => item.name !== product);
+            localStorage.setItem('card', JSON.stringify(card));
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

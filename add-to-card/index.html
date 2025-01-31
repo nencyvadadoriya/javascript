@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <!-- css link  -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <!-- Header -->
+    <section class="container header">
+        <header>
+            <nav>
+                <ul class="d-flex justify-between">
+                    <a href="./index.html">Home</a>
+                    <a href="./add-to-card.html">Add To Card</a>
+                </ul>
+            </nav>
+        </header>
+    </section>
+
+    <h2 align="center" class="text">All Products</h2>
+    <section class="container add-to-cart text-center">
+        <div class="row" id="product">
+            <div class="w-4" id="product-1">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/1.jpg" alt="Fossil Watch" width="170px">
+                    <div class="card-body">
+                        <h3 class="card-title">Fossil Watch</h3>
+                        <h4 class="card-text">₹ 5,795</h4>
+                        <a href="#" class="btn delete-btn" onclick="deleteItem('product-1')">Delete</a>
+                        <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Fossil Watch', 5795, 'img/1.jpg')">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4" id="product-2">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/2.jpg" alt="Timex Watch" width="200px">
+                    <div class="card-body">
+                        <h3 class="card-title">Timex Watch</h3>
+                        <h4 class="card-text">₹8,450</h4>
+                        <a href="#" class="btn delete-btn" onclick="deleteItem('product-2')">Delete</a>
+                        <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Timex Watch', 8450, 'img/2.jpg')">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4" id="product-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/9.webp" alt="Relish Watch" width="200px">
+                    <div class="card-body">
+                        <h3 class="card-title">Relish Watch</h3>
+                        <h4 class="card-text">₹7,765</h4>
+                        <a href="#" class="btn delete-btn" onclick="deleteItem('product-3')">Delete</a>
+                        <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Relish Watch', 7765, 'img/9.webp')">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4" id="product-4">
+              <div class="card" style="width: 18rem;">
+                  <img src="img/3.jpg" alt="Fastrack Watch" width="200px">
+                  <div class="card-body">
+                      <h3 class="card-title">Fastrack Watch</h3>
+                      <h4 class="card-text">₹5,765</h4>
+                      <a href="#" class="btn delete-btn" onclick="deleteItem('product-4')">Delete</a>
+                      <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Fastrack Watch', 5765, 'img/3.jpg')">Add To Cart</a>
+                  </div>
+              </div>
+            </div>
+            <div class="w-4" id="product-5">
+            <div class="card" style="width: 18rem;">
+                <img src="img/4.webp" alt="Zoop Watch" width="200px">
+                <div class="card-body">
+                    <h3 class="card-title">Zoop Watch</h3>
+                    <h4 class="card-text">₹8,599</h4>
+                    <a href="#" class="btn delete-btn" onclick="deleteItem('product-5')">Delete</a>
+                    <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Zoop Watch', 8599, 'img/4.webp')">Add To Cart</a>
+                </div>
+            </div>
+            </div>
+            <div class="w-4" id="product-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/7.avif" alt="Titan Watch" width="200px">
+                    <div class="card-body">
+                        <h3 class="card-title">Titan  Watch</h3>
+                        <h4 class="card-text">₹7,765</h4>
+                        <a href="#" class="btn delete-btn" onclick="deleteItem('product-6')">Delete</a>
+                        <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Titan  Watch', 7765, 'img/7.avif')">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4" id="product-7">
+              <div class="card" style="width: 18rem;">
+                  <img src="img/5.PNG" alt="Casio Watch" width="200px">
+                  <div class="card-body">
+                      <h3 class="card-title">Casio Watch</h3>
+                      <h4 class="card-text">₹9,999</h4>
+                      <a href="#" class="btn delete-btn" onclick="deleteItem('product-7')">Delete</a>
+                      <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Casio Watch', 9999, 'img/5.PNG')">Add To Cart</a>
+                  </div>
+              </div>
+            </div>
+            <div class="w-4" id="product-8">
+              <div class="card" style="width: 18rem;">
+                  <img src="img/8.webp" alt="Richard Mille Watch" width="200px">
+                  <div class="card-body">
+                      <h3 class="card-title">Richard Mille Watch</h3>
+                      <h4 class="card-text">₹10,765</h4>
+                      <a href="#" class="btn delete-btn" onclick="deleteItem('product-8')">Delete</a>
+                      <a href="#" class="btn add-to-cart-btn" onclick="addToCart('Richard Mille Watch', 10765, 'img/8.webp')">Add To Cart</a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/style.js"></script>
+</body>
+</html>
