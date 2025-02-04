@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Shopping</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,27 +19,40 @@
     </div>
 
     <div class="form-container">
-        <h1 class="text-center">Product Page</h1>
+        <h1 class="text-center">Add Product</h1>
         <form id="product-form">
-            <label for="product-name">Product Name:</label>
-            <input type="text" id="productname" required><br>
+            <label for="productname">Product Name:</label>
+            <input type="text" id="productname" required>
+            
+            <label for="productprice">Price ($):</label>
+            <input type="number" id="productprice" required>
 
-            <label for="product-price">Product Price ($):</label>
-            <input type="number" id="productprice" required><br>
+            <label for="productquantity">Quantity:</label>
+            <input type="number" id="productquantity" required>
 
-            <label for="product-quantity">Product Quantity:</label>
-            <input type="number" id="productquantity" required><br>
+            <label for="productImage">Image:</label>
+            <input type="file" id="productImage" accept="image/*" required>
 
-            <label for="product-size">Product Size:</label>
-            <input type="text" id="productsize" required><br>
-
-            <label for="product-color">Product Color:</label>
-            <input type="text" id="productcolor" required><br>
-
-            <button type="submit">Add to Cart</button>
+            <button type="submit">Add Product</button>
         </form>
     </div>
 
-    <script src="cart.js"></script>
+    <div class="product-list" align="center">
+        <h2 class="text-center">Product List</h2>
+        <table border="1" width="50%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="product-items"></tbody>
+        </table>
+    </div>
+
+    <script src="js/cart.js"></script>
 </body>
 </html>
