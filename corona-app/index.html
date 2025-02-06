@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner">
+        <h1>COVID-19 Data</h1>
+        <div class="search-container">
+            <input type="date" id="dateInput">
+            <button id="btn">Get Data</button>
+        </div>
+    </div>
+    <h2>India State-wise Data</h2>
+    <div class="grid-container" id="indiaData"></div>
+    <h2>Global Country-wise Data</h2>
+    <div class="grid-container" id="globalData"></div>
+    <script>
+        function getRandomColor() {
+            var colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"];
+             return colors[Math.floor(Math.random() * colors.length)];
+        }
+        document.getElementById("btn").addEventListener("click", function () {
+            var date = document.getElementById("dateInput").value;
+            if (!date) {
+                alert("Please enter a date!");
+                return;
+            }
+            var dateObj = new Date(date);
+            var month = dateObj.getMonth() + 1; 
+            var day = dateObj.getDate();
+            var year = dateObj.getFullYear().toString().slice(-2);
+            var formattedDate = `${month}/${day}/${year}`;
+            var globalApiUrl = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
+            var indiaStateApiUrl = "https://disease.sh/v3/covid-19/gov/India";
+            fetch(indiaStateApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var indiaDataDiv = document.getElementById("indiaData");
+    
+                    data.states.forEach(state => {
+                        var box = `<div class="data-box" style="background-color: ${getRandomColor()}">
+                            <h3>${state.state}</h3>
+                            <p class="cases">Cases: ${state.cases.toLocaleString()}</p>
+                            <p class="recovered">Recovered: ${state.recovered.toLocaleString()}</p>
+                            <p class="deaths">Deaths: ${state.deaths.toLocaleString()}</p>
+                        </div>`;
+                        indiaDataDiv.innerHTML += box; 
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching India state data:", error);
+                    alert("Error fetching India state-wise data.");
+                });
+            fetch(globalApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var globalDataDiv = document.getElementById("globalData");
+                    globalDataDiv.innerHTML = "";
+    
+                    if (data.cases && data.cases[formattedDate]) {
+                        var box = `<div class="data-box" style="background-color: ${getRandomColor()}">
+                            <h3>Global (Total)</h3>
+                            <p class="cases">Cases: ${data.cases[formattedDate].toLocaleString()}</p>
+                            <p class="recovered">Recovered: ${data.recovered[formattedDate].toLocaleString()}</p>
+                            <p class="deaths">Deaths: ${data.deaths[formattedDate].toLocaleString()}</p>
+                        </div>`;
+                        globalDataDiv.innerHTML = box;
+                    } else {
+                        globalDataDiv.innerHTML = `<p>No data available for this date.</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching global data:", error);
+                    alert("Error fetching global data.");
+                });
+        });
+    </script>
+</body>
+</html>
