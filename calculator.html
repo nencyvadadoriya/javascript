@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #f4a261;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #1e1e2d;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        .first {
+            background-color: #29293d;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: right;
+            padding: 20px;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        td {
+            background-color: #3c3c4f;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        td:hover {
+            background-color: #565676;
+        }
+
+        td:active {
+            background-color: #6d6d8c;
+        }
+
+        td:last-child {
+            background-color: #f4a261;
+        }
+
+        td:last-child:hover {
+            background-color: #e58e3b;
+        }
+
+        td[colspan="4"] {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+  <center>
+    <div class="calculator">
+        <table>
+            <tr>
+                <td colspan="4" class="first" id="result"></td>
+            </tr>
+            <tr>
+                <td onclick="Clear()">C</td>
+                <td onclick="AppendOperator('(')">(</td>
+                <td onclick="AppendOperator(')')">)</td>
+                <td onclick="AppendOperator('/')">/</td>
+            </tr>
+            <tr>
+                <td onclick="AppendNumber('7')">7</td>
+                <td onclick="AppendNumber('8')">8</td>
+                <td onclick="AppendNumber('9')">9</td>
+                <td onclick="AppendOperator('*')">x</td>
+            </tr>
+            <tr>
+                <td onclick="AppendNumber('4')">4</td>
+                <td onclick="AppendNumber('5')">5</td>
+                <td onclick="AppendNumber('6')">6</td>
+                <td onclick="AppendOperator('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="AppendNumber('1')">1</td>
+                <td onclick="AppendNumber('2')">2</td>
+                <td onclick="AppendNumber('3')">3</td>
+                <td onclick="AppendOperator('+')">+</td>
+            </tr>
+            <tr>
+                <td onclick="AppendOperator('+/-')">+/-</td>
+                <td onclick="AppendNumber('0')">0</td>
+                <td onclick="AppendOperator('.')">.</td>
+                <td onclick="Calculate()">=</td>
+            </tr>
+        </table>
+    </div>
+  </center>
+
+  <script>
+    let result = document.getElementById('result');
+    let expression = '';
+
+    function AppendNumber(num) {
+        expression += num;
+        result.textContent = expression;
+    }
+
+    function AppendOperator(symbol) {
+        expression += ' ' + symbol + ' ';
+        result.textContent = expression;
+    }
+
+    function AppendDecimal() {
+        if (!expression.includes('.')) {
+            expression += '.';
+            result.textContent = expression;
+        }
+    }
+
+    function Clear() {
+        expression = '';
+        result.textContent = expression;
+    }
+
+    function Calculate() {
+        try {
+            let answer = eval(expression.replace('x', '*').replace('÷', '/'));
+            result.textContent = answer;
+            expression = '';
+        } catch (error) {
+            result.textContent = 'Error';
+        }
+    }
+  </script>
+</body>
+</html>
