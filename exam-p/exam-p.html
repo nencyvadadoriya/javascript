@@ -44,19 +44,15 @@
             </tbody>
         </table>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let createForm = document.getElementById("create_form");
-            
             createForm.addEventListener("submit", function (event) {
                 event.preventDefault();
                 create_btn();
             });
-
             loadStoredItems();
         });
-
         function create_btn() {
             let fullName = document.getElementById("c_fullName").value;
             let email = document.getElementById("c_email").value;
@@ -65,7 +61,6 @@
                 alert("Please enter all details.");
                 return;
             }
-
             let employeeList = document.querySelector("#employeeList tbody");
             let newRow = employeeList.insertRow();
 
@@ -81,13 +76,11 @@
             let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
             form_items.push({ fullName, email });
             localStorage.setItem('form_items', JSON.stringify(form_items));
-
             document.getElementById("c_fullName").value = "";
             document.getElementById("c_email").value = "";
         }
     let selectedRow = null;
     let originalEmail = "";
-
     function editRow(button) {
         selectedRow = button.parentElement.parentElement;
         document.getElementById("u_fullName").value = selectedRow.cells[0].textContent;
@@ -111,7 +104,6 @@
             alert("Please enter all details.");
             return;
         }
-
         selectedRow.cells[0].textContent = fullName;
         selectedRow.cells[1].textContent = email;
 
@@ -126,8 +118,6 @@
         document.getElementById("update_form").style.display = "none";
         document.getElementById("create_form").style.display = "block";
     }
-
-
         function deleteRow(button) {
             let row = button.parentElement.parentElement;
             let email = row.cells[1].textContent;
@@ -138,7 +128,6 @@
 
             row.remove();
         }
-
         function loadStoredItems() {
             let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
             let employeeList = document.querySelector("#employeeList tbody");
@@ -146,7 +135,6 @@
             if (form_items.length === 0) {
                 return;
             }
-
             form_items.forEach(item => {
                 let newRow = employeeList.insertRow();
                 newRow.innerHTML = `
