@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1340px;
+}
+.form_item button ,.update_form button{
+    background-color: black;
+    color: white;
+    padding:5px 15px;
+    border: none;
+    margin:10px;
+    border-radius: 5px;
+}
+.form_item input ,.update_form input{
+    padding:6px 10px;
+    margin:5px 10px;
+    display: block;
+}
+.list tr th{
+    padding: 10px;
+}

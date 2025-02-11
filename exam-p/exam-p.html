@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript CRUD Example Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form_container form">
+        <h1>Create Form</h1>
+        <form id="create_form" class="form_item">
+            <div>
+                <label>Full Name</label>
+                <input type="text" name="fullName" id="c_fullName">
+            </div>
+            <div>
+                <label>Email Id</label>
+                <input type="email" name="email" id="c_email">
+            </div>
+            <button type="submit">Create</button>
+        </form>
+
+        <form id="update_form" class="update_form" style="display: none;">
+            <h1>Update Form</h1>
+            <div>
+                <label>Full Name</label>
+                <input type="text" name="fullName" id="u_fullName">
+            </div>
+            <div>
+                <label>Email Id</label>
+                <input type="email" name="email" id="u_email">
+            </div>
+            <button type="submit">Update</button>
+        </form>
+
+        <table class="list" id="employeeList" border="1px" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let createForm = document.getElementById("create_form");
+            
+            createForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                create_btn();
+            });
+
+            loadStoredItems();
+        });
+
+        function create_btn() {
+            let fullName = document.getElementById("c_fullName").value;
+            let email = document.getElementById("c_email").value;
+
+            if (fullName === "" || email === "") {
+                alert("Please enter all details.");
+                return;
+            }
+
+            let employeeList = document.querySelector("#employeeList tbody");
+            let newRow = employeeList.insertRow();
+
+            newRow.innerHTML = `
+                <td>${fullName}</td>
+                <td>${email}</td>
+                <td>
+                    <button onclick="editRow(this)">Edit</button>
+                    <button onclick="deleteRow(this)">Delete</button>
+                </td>
+            `;
+
+            let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
+            form_items.push({ fullName, email });
+            localStorage.setItem('form_items', JSON.stringify(form_items));
+
+            document.getElementById("c_fullName").value = "";
+            document.getElementById("c_email").value = "";
+        }
+    let selectedRow = null;
+    let originalEmail = "";
+
+    function editRow(button) {
+        selectedRow = button.parentElement.parentElement;
+        document.getElementById("u_fullName").value = selectedRow.cells[0].textContent;
+        document.getElementById("u_email").value = selectedRow.cells[1].textContent;
+        originalEmail = selectedRow.cells[1].textContent;
+
+        document.getElementById("update_form").style.display = "block";
+        document.getElementById("create_form").style.display = "none";
+    }
+
+    document.getElementById("update_form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        updateRow();
+    });
+
+    function updateRow() {
+        let fullName = document.getElementById("u_fullName").value;
+        let email = document.getElementById("u_email").value;
+
+        if (fullName === "" || email === "") {
+            alert("Please enter all details.");
+            return;
+        }
+
+        selectedRow.cells[0].textContent = fullName;
+        selectedRow.cells[1].textContent = email;
+
+        let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
+        let itemIndex = form_items.findIndex(item => item.email === originalEmail);
+
+        if (itemIndex !== -1) {
+            form_items[itemIndex] = { fullName, email };
+        }
+        localStorage.setItem('form_items', JSON.stringify(form_items));
+
+        document.getElementById("update_form").style.display = "none";
+        document.getElementById("create_form").style.display = "block";
+    }
+
+
+        function deleteRow(button) {
+            let row = button.parentElement.parentElement;
+            let email = row.cells[1].textContent;
+
+            let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
+            form_items = form_items.filter(item => item.email !== email);
+            localStorage.setItem('form_items', JSON.stringify(form_items));
+
+            row.remove();
+        }
+
+        function loadStoredItems() {
+            let form_items = JSON.parse(localStorage.getItem('form_items')) || [];
+            let employeeList = document.querySelector("#employeeList tbody");
+
+            if (form_items.length === 0) {
+                return;
+            }
+
+            form_items.forEach(item => {
+                let newRow = employeeList.insertRow();
+                newRow.innerHTML = `
+                    <td>${item.fullName}</td>
+                    <td>${item.email}</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
